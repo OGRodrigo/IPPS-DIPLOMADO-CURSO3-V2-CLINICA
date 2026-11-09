@@ -1,9 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 
-import { conectar } from 'config/db.js'
+import { conectar } from './config/db.js'
  
-import { authRoutes } from './routes/auth.route.js'
+import { authRoutes } from './routes/auth.routes.js'
 import { pacienteRoutes } from './routes/paciente.route.js'
 
 const app = express()
