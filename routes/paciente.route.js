@@ -1,16 +1,24 @@
-import { Router } from "express"
-import { proteger } from "../middlewares/proteger.js"
+import { Router } from 'express'
+
+import { proteger } from '../middlewares/proteger.js'
+import * as controller from '../controllers/paciente.controller.js'
 
 export const pacienteRoutes = Router()
 
-pacienteRoutes.use(proteger) // 👈 de aquí abajo, todo exige token
+// Todas las rutas de pacientes requieren token
+pacienteRoutes.use(proteger)
 
-pacienteRoutes.post('/', (req, res, next)=>{
-    res.json({mensaje: 'Pudiste pasar, eres un dctr'})
-})
-pacienteRoutes.get('/', (req, res, next)=>{
-    res.json({mensaje: 'Pudiste pasar, eres un dctr'})
-})
-pacienteRoutes.get('/:id', (req, res, next)=>{
-    res.json({mensaje: 'Pudiste pasar, eres un dctr'})
-})
+// Crear paciente
+pacienteRoutes.post('/', controller.crear)
+
+// Listar pacientes del médico autenticado
+pacienteRoutes.get('/', controller.listar)
+
+// Obtener cualquier paciente por ID
+pacienteRoutes.get('/:id', controller.obtenerPorId)
+
+// Actualizar paciente
+pacienteRoutes.put('/:id', controller.actualizar)
+
+// Eliminar paciente
+pacienteRoutes.delete('/:id', controller.eliminar)
