@@ -2,12 +2,12 @@ import express from 'express'
 import cors from 'cors'
 
 import { conectar } from './config/db.js'
- 
+
 import { authRoutes } from './routes/auth.routes.js'
+import { medicoRoutes } from './routes/medico.routes.js'
 import { pacienteRoutes } from './routes/paciente.route.js'
 
 const app = express()
-
 
 app.use(cors())
 app.use(express.json())
@@ -16,10 +16,12 @@ app.use('/auth', authRoutes)
 //http://localhost:3001/auth/registrar/
 //http://localhost:3001/auth/login/
 
+app.use('/medicos', medicoRoutes)
+
 app.use('/pacientes', pacienteRoutes)
 
 await conectar()
 
-app.listen(3001, ()=>{
-    console.log('levantmos al apu')
+app.listen(3001, () => {
+  console.log('levantamos al apu')
 })

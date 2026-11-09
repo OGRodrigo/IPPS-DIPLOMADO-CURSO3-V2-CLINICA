@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-
+import bcrypt from 'bcryptjs'
 
 const medicoSchema = new mongoose.Schema({
   nombre: { type: String, required: true, trim: true },
