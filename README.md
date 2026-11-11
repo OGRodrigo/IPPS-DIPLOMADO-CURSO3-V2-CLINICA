@@ -21,3 +21,8 @@ Clonar el repositorio:
 
 ```bash
 git clone https://github.com/OGRodrigo/IPPS-DIPLOMADO-CURSO3-V2-CLINICA.git
+
+## Video de demostración
+
+[Ver video de demostración en YouTube](https://youtu.be/CflNDEIl1NE)
+

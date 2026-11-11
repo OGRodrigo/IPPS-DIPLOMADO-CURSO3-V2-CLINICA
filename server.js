@@ -23,5 +23,5 @@ app.use('/pacientes', pacienteRoutes)
 await conectar()
 
 app.listen(3001, () => {
-  console.log('levantamos al apu')
+  console.log('levantamos la api')
 })
